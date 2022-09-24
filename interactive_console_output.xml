@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.9.13 on win32)" generated="20220922 18:12:34.778" rpa="false" schemaversion="3">
+<suite id="s1" name="Robot Interactive Console" source="c:\Users\ketthpra\.vscode\extensions\robocorp.robotframework-lsp-1.1.3\src\robotframework_ls\vendored\robotframework_interactive\robot_interactive_console.robot">
+<test id="s1-t1" name="Default Task/Test" line="5">
+<kw name="Interpreter Main Loop" library="MainLoop">
+<kw name="Open and loging to webpage">
+<kw name="Open Available Browser">
+<arg>https://robotsparebinindustries.com/#/</arg>
+<msg timestamp="20220922 18:12:45.717" level="FAIL">No keyword with name 'Open Available Browser' found.</msg>
+<status status="FAIL" starttime="20220922 18:12:45.716" endtime="20220922 18:12:45.717"/>
+</kw>
+<kw name="Input Text">
+<arg>username</arg>
+<arg>maria</arg>
+<status status="NOT RUN" starttime="20220922 18:12:45.717" endtime="20220922 18:12:45.718"/>
+</kw>
+<kw name="Input Password">
+<arg>password</arg>
+<arg>thoushallnotpass</arg>
+<status status="NOT RUN" starttime="20220922 18:12:45.719" endtime="20220922 18:12:45.719"/>
+</kw>
+<kw name="Submit Form">
+<status status="NOT RUN" starttime="20220922 18:12:45.719" endtime="20220922 18:12:45.719"/>
+</kw>
+<kw name="Wait Until Page Contains Element">
+<arg>id:firstname</arg>
+<status status="NOT RUN" starttime="20220922 18:12:45.720" endtime="20220922 18:12:45.720"/>
+</kw>
+<kw name="Click Link">
+<arg>Order your robot!</arg>
+<status status="NOT RUN" starttime="20220922 18:12:45.721" endtime="20220922 18:12:45.721"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Hello World!</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20220922 18:12:45.721" endtime="20220922 18:12:45.721"/>
+</kw>
+<status status="FAIL" starttime="20220922 18:12:45.714" endtime="20220922 18:12:45.722"/>
+</kw>
+<kw name="Open Available Browser">
+<arg>https://robotsparebinindustries.com/#/</arg>
+<status status="NOT RUN" starttime="20220922 18:12:45.723" endtime="20220922 18:12:45.723"/>
+</kw>
+<kw name="Input Text">
+<arg>username</arg>
+<arg>maria</arg>
+<status status="NOT RUN" starttime="20220922 18:12:45.724" endtime="20220922 18:12:45.724"/>
+</kw>
+<kw name="Input Password">
+<arg>password</arg>
+<arg>thoushallnotpass</arg>
+<status status="NOT RUN" starttime="20220922 18:12:45.725" endtime="20220922 18:12:45.725"/>
+</kw>
+<kw name="Submit Form">
+<status status="NOT RUN" starttime="20220922 18:12:45.725" endtime="20220922 18:12:45.725"/>
+</kw>
+<kw name="Wait Until Page Contains Element">
+<arg>id:firstname</arg>
+<status status="NOT RUN" starttime="20220922 18:12:45.726" endtime="20220922 18:12:45.726"/>
+</kw>
+<kw name="Click Link">
+<arg>Order your robot!</arg>
+<status status="NOT RUN" starttime="20220922 18:12:45.727" endtime="20220922 18:12:45.727"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Hello World!</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20220922 18:12:45.727" endtime="20220922 18:12:45.727"/>
+</kw>
+<kw name="Open Available Browser">
+<arg>https://robotsparebinindustries.com/#/</arg>
+<msg timestamp="20220922 18:12:57.814" level="FAIL">No keyword with name 'Open Available Browser' found.</msg>
+<status status="FAIL" starttime="20220922 18:12:57.813" endtime="20220922 18:12:57.814"/>
+</kw>
+<kw name="RPA.Browser.Selenium">
+<msg timestamp="20220922 18:13:24.921" level="FAIL">No keyword with name 'RPA.Browser.Selenium' found.</msg>
+<status status="FAIL" starttime="20220922 18:13:24.921" endtime="20220922 18:13:24.921"/>
+</kw>
+<kw name="Library">
+<arg>RPA.Browser.Selenium</arg>
+<msg timestamp="20220922 18:13:54.975" level="FAIL">No keyword with name 'Library' found.</msg>
+<status status="FAIL" starttime="20220922 18:13:54.975" endtime="20220922 18:13:54.975"/>
+</kw>
+<kw name="RPA.Browser.Selenium">
+<msg timestamp="20220922 18:14:30.054" level="FAIL">No keyword with name 'RPA.Browser.Selenium' found.</msg>
+<status status="FAIL" starttime="20220922 18:14:30.054" endtime="20220922 18:14:30.054"/>
+</kw>
+<kw name="Import Library" library="BuiltIn">
+<arg>RPA.Browser.Selenium</arg>
+<doc>Imports a library with the given name and optional arguments.</doc>
+<status status="PASS" starttime="20220922 18:14:52.153" endtime="20220922 18:14:55.755"/>
+</kw>
+<kw name="Import Library" library="BuiltIn">
+<arg>RPA.Browser.Selenium</arg>
+<doc>Imports a library with the given name and optional arguments.</doc>
+<status status="PASS" starttime="20220922 18:15:05.972" endtime="20220922 18:15:05.973"/>
+</kw>
+<kw name="Open Available Browser" library="RPA.Browser.Selenium">
+<arg>https://robotsparebinindustries.com/#/</arg>
+<doc>Attempts to open a browser on the user's device from a set of
+supported browsers. Automatically downloads a corresponding webdriver
+if none is already installed.</doc>
+<status status="PASS" starttime="20220922 18:15:17.890" endtime="20220922 18:15:21.238"/>
+</kw>
+<kw name="Input Text" library="RPA.Browser.Selenium">
+<arg>username</arg>
+<arg>maria</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" starttime="20220922 18:15:39.396" endtime="20220922 18:15:39.466"/>
+</kw>
+<kw name="Input Password" library="RPA.Browser.Selenium">
+<arg>password</arg>
+<arg>thoushallnotpass</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" starttime="20220922 18:15:39.466" endtime="20220922 18:15:39.537"/>
+</kw>
+<kw name="Select Radio Button" library="RPA.Browser.Selenium">
+<arg>radio form-check</arg>
+<arg>id-body-2</arg>
+<doc>Sets the radio button group ``group_name`` to ``value``.</doc>
+<kw name="Capture Page Screenshot" library="RPA.Browser.Selenium">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" starttime="20220922 18:23:58.218" endtime="20220922 18:23:58.333"/>
+</kw>
+<msg timestamp="20220922 18:23:58.333" level="FAIL">No radio button with name 'radio form-check' and value 'id-body-2' found.</msg>
+<status status="FAIL" starttime="20220922 18:23:58.206" endtime="20220922 18:23:58.334"/>
+</kw>
+<kw name="Select Radio Button" library="RPA.Browser.Selenium">
+<arg>stacked</arg>
+<arg>id-body-2</arg>
+<doc>Sets the radio button group ``group_name`` to ``value``.</doc>
+<kw name="Capture Page Screenshot" library="RPA.Browser.Selenium">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" starttime="20220922 18:25:55.797" endtime="20220922 18:25:55.854"/>
+</kw>
+<msg timestamp="20220922 18:25:55.854" level="FAIL">No radio button with name 'stacked' and value 'id-body-2' found.</msg>
+<status status="FAIL" starttime="20220922 18:25:55.786" endtime="20220922 18:25:55.854"/>
+</kw>
+<kw name="Select Radio Button" library="RPA.Browser.Selenium">
+<arg>radio.form-check</arg>
+<arg>id-body-2</arg>
+<doc>Sets the radio button group ``group_name`` to ``value``.</doc>
+<kw name="Capture Page Screenshot" library="RPA.Browser.Selenium">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" starttime="20220922 18:26:32.951" endtime="20220922 18:26:33.022"/>
+</kw>
+<msg timestamp="20220922 18:26:33.023" level="FAIL">No radio button with name 'radio.form-check' and value 'id-body-2' found.</msg>
+<status status="FAIL" starttime="20220922 18:26:32.931" endtime="20220922 18:26:33.023"/>
+</kw>
+<kw name="Select Radio Button" library="RPA.Browser.Selenium">
+<arg>form-check-input</arg>
+<arg>2</arg>
+<doc>Sets the radio button group ``group_name`` to ``value``.</doc>
+<kw name="Capture Page Screenshot" library="RPA.Browser.Selenium">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" starttime="20220922 18:28:01.246" endtime="20220922 18:28:01.305"/>
+</kw>
+<msg timestamp="20220922 18:28:01.305" level="FAIL">No radio button with name 'form-check-input' and value '2' found.</msg>
+<status status="FAIL" starttime="20220922 18:28:01.230" endtime="20220922 18:28:01.305"/>
+</kw>
+<kw name="Select Radio Button" library="RPA.Browser.Selenium">
+<arg>form-check-input</arg>
+<arg>Roll-a-thor body</arg>
+<doc>Sets the radio button group ``group_name`` to ``value``.</doc>
+<kw name="Capture Page Screenshot" library="RPA.Browser.Selenium">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" starttime="20220922 18:29:08.146" endtime="20220922 18:29:08.367"/>
+</kw>
+<msg timestamp="20220922 18:29:08.367" level="FAIL">No radio button with name 'form-check-input' and value 'Roll-a-thor body' found.</msg>
+<status status="FAIL" starttime="20220922 18:29:08.131" endtime="20220922 18:29:08.367"/>
+</kw>
+<kw name="Select Radio Button" library="RPA.Browser.Selenium">
+<arg>form-check-input</arg>
+<arg>Roll-a-thor body</arg>
+<doc>Sets the radio button group ``group_name`` to ``value``.</doc>
+<kw name="Capture Page Screenshot" library="RPA.Browser.Selenium">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" starttime="20220922 18:29:24.145" endtime="20220922 18:29:24.231"/>
+</kw>
+<msg timestamp="20220922 18:29:24.231" level="FAIL">No radio button with name 'form-check-input' and value 'Roll-a-thor body' found.</msg>
+<status status="FAIL" starttime="20220922 18:29:24.135" endtime="20220922 18:29:24.232"/>
+</kw>
+<kw name="Select Radio Button" library="RPA.Browser.Selenium">
+<arg>body</arg>
+<arg>2</arg>
+<doc>Sets the radio button group ``group_name`` to ``value``.</doc>
+<status status="PASS" starttime="20220922 18:31:13.656" endtime="20220922 18:31:13.701"/>
+</kw>
+<kw name="Select Radio Button" library="RPA.Browser.Selenium">
+<arg>body</arg>
+<arg>2</arg>
+<doc>Sets the radio button group ``group_name`` to ``value``.</doc>
+<status status="PASS" starttime="20220922 18:31:27.059" endtime="20220922 18:31:27.101"/>
+</kw>
+<kw name="Select Radio Button" library="RPA.Browser.Selenium">
+<arg>body</arg>
+<arg>2</arg>
+<doc>Sets the radio button group ``group_name`` to ``value``.</doc>
+<kw name="Capture Page Screenshot" library="RPA.Browser.Selenium">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20220922 18:38:16.109" level="FAIL">WebDriverException: Message: chrome not reachable
+  (Session info: chrome=105.0.5195.127)
+</msg>
+<status status="FAIL" starttime="20220922 18:38:05.635" endtime="20220922 18:38:16.112"/>
+</kw>
+<msg timestamp="20220922 18:38:16.113" level="FAIL">WebDriverException: Message: chrome not reachable
+  (Session info: chrome=105.0.5195.127)
+</msg>
+<status status="FAIL" starttime="20220922 18:37:55.167" endtime="20220922 18:38:16.113"/>
+</kw>
+<kw name="Open Available Browser" library="RPA.Browser.Selenium">
+<arg>https://robotsparebinindustries.com/#/</arg>
+<doc>Attempts to open a browser on the user's device from a set of
+supported browsers. Automatically downloads a corresponding webdriver
+if none is already installed.</doc>
+<status status="PASS" starttime="20220922 18:38:27.404" endtime="20220922 18:38:29.016"/>
+</kw>
+<kw name="Input Text" library="RPA.Browser.Selenium">
+<arg>username</arg>
+<arg>maria</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" starttime="20220922 18:38:38.530" endtime="20220922 18:38:38.594"/>
+</kw>
+<kw name="Input Password" library="RPA.Browser.Selenium">
+<arg>password</arg>
+<arg>thoushallnotpass</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" starttime="20220922 18:38:38.595" endtime="20220922 18:38:38.676"/>
+</kw>
+<kw name="Select Radio Button" library="RPA.Browser.Selenium">
+<arg>body</arg>
+<arg>2</arg>
+<doc>Sets the radio button group ``group_name`` to ``value``.</doc>
+<status status="PASS" starttime="20220922 18:39:25.632" endtime="20220922 18:39:25.680"/>
+</kw>
+<kw name="Type Text Into">
+<arg>id:1663864725193</arg>
+<arg>10</arg>
+<msg timestamp="20220922 18:46:17.925" level="FAIL">No keyword with name 'Type Text Into' found.</msg>
+<status status="FAIL" starttime="20220922 18:46:17.925" endtime="20220922 18:46:17.925"/>
+</kw>
+<kw name="Type Text Into" library="RPA.Desktop">
+<arg>id:1663864725193</arg>
+<arg>10</arg>
+<doc>Type text at the position indicated by given locator.</doc>
+<msg timestamp="20220922 18:50:44.426" level="FAIL">ValueError: Unknown locator type: id</msg>
+<status status="FAIL" starttime="20220922 18:50:44.425" endtime="20220922 18:50:44.427"/>
+</kw>
+<kw name="Type Text Into" library="RPA.Desktop">
+<arg>name:1663864725193</arg>
+<arg>10</arg>
+<doc>Type text at the position indicated by given locator.</doc>
+<msg timestamp="20220922 18:52:23.377" level="FAIL">ValueError: Unknown locator type: name</msg>
+<status status="FAIL" starttime="20220922 18:52:23.376" endtime="20220922 18:52:23.377"/>
+</kw>
+<kw name="Input Text" library="RPA.Browser.Selenium">
+<arg>id:1663864725193</arg>
+<arg>10</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" starttime="20220922 18:53:58.787" endtime="20220922 18:53:58.856"/>
+</kw>
+<kw name="Input Text" library="RPA.Browser.Selenium">
+<arg>id:address</arg>
+<arg>Hello world!</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" starttime="20220922 18:55:17.693" endtime="20220922 18:55:17.799"/>
+</kw>
+<kw name="Click Button" library="RPA.Browser.Selenium">
+<arg>id:order</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" starttime="20220922 18:56:50.004" endtime="20220922 18:56:50.070"/>
+</kw>
+<kw name="Click Button" library="RPA.Browser.Selenium">
+<arg>id:order</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" starttime="20220922 18:57:10.628" endtime="20220922 18:57:10.687"/>
+</kw>
+<kw name="Input Text" library="RPA.Browser.Selenium">
+<arg>class:form-control</arg>
+<arg>10</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<kw name="Capture Page Screenshot" library="RPA.Browser.Selenium">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20220922 19:01:43.423" level="FAIL">WebDriverException: Message: chrome not reachable
+  (Session info: chrome=105.0.5195.127)
+</msg>
+<status status="FAIL" starttime="20220922 19:01:32.959" endtime="20220922 19:01:43.425"/>
+</kw>
+<msg timestamp="20220922 19:01:43.426" level="FAIL">WebDriverException: Message: chrome not reachable
+  (Session info: chrome=105.0.5195.127)
+</msg>
+<status status="FAIL" starttime="20220922 19:01:22.502" endtime="20220922 19:01:43.426"/>
+</kw>
+<kw name="Input Text" library="RPA.Browser.Selenium">
+<arg>class:form-control</arg>
+<arg>10</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<kw name="Capture Page Screenshot" library="RPA.Browser.Selenium">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20220922 19:02:04.347" level="FAIL">WebDriverException: Message: chrome not reachable
+  (Session info: chrome=105.0.5195.127)
+</msg>
+<status status="FAIL" starttime="20220922 19:01:53.903" endtime="20220922 19:02:04.348"/>
+</kw>
+<msg timestamp="20220922 19:02:04.348" level="FAIL">WebDriverException: Message: chrome not reachable
+  (Session info: chrome=105.0.5195.127)
+</msg>
+<status status="FAIL" starttime="20220922 19:01:43.430" endtime="20220922 19:02:04.349"/>
+</kw>
+<kw name="Import Library" library="BuiltIn">
+<arg>RPA.Browser.Seleium</arg>
+<doc>Imports a library with the given name and optional arguments.</doc>
+<msg timestamp="20220922 19:03:59.872" level="FAIL">Importing library 'RPA.Browser.Seleium' failed: Module 'RPA.Browser' does not contain 'Seleium'.</msg>
+<status status="FAIL" starttime="20220922 19:03:59.871" endtime="20220922 19:03:59.874"/>
+</kw>
+<kw name="Import Library" library="BuiltIn">
+<arg>RPA.Browser.Selenium</arg>
+<doc>
