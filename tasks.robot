@@ -7,21 +7,21 @@ Library             RPA.Browser.Selenium    auto_close=${False}
 Library             RPA.HTTP
 Library             RPA.Tables
 Library             RPA.Windows
+Library             RPA.PDF
 
 
 *** Variables ***
-${DONWLOAD_PATH}    ${OUTPUT DIR}${/}Worklist.csv
+${DONWLOAD_PATH}        ${OUTPUT DIR}${/}Worklist.csv
+${SCREENSHOT_PATH}      ${OUTPUT DIR}${/}RobotScreen.png
 
 
 *** Tasks ***
 Order robots from RobotSpareBin Industries Inc
     Open and loging to webpage
-    Click Test
     Clik on popmelding
     Download csv file
     Read csv file and return a list
-
-#    Take Screenshot of the Order
+    Take Screenshot of the Order
 #    Convert and save to PDF
 #    Zip all pdf files
 #    [Teardown]    Close All Applications
@@ -63,12 +63,18 @@ Order from webpage
     Select Radio Button    body    ${Body}
     Input Text    class:form-control    ${Legs}
     Input Text    id:address    ${Address}
+    Click Button    id:preview
     Click Button    id:order
-    ${ErrorMessage}=    Does Page Contain Element    class:.alert-danger
-    IF    ${ErrorMessage}    Click Button    id:order
+    Take Screenshot of the Order
+    ${RECEIPT}=    Get Element Attribute    id:receipt    outerHTML
+    Html To Pdf    ${RECEIPT}    ${Ordernumaber}.pdf
+    Open Pdf    ${Ordernumaber}.pdf
+    Add Watermark Image To Pdf    ${SCREENSHOT_PATH}    ${Ordernumaber}.pdf
+    Close Pdf
     Click Button    id:order-another
     ${PopupMessage}=    Does Page Contain Button    //*[@id="root"]/div/div[2]/div/div/div/div/div/button[1]
     IF    ${PopupMessage}    Clik on popmelding
 
-Click Test
-    Select From List By Value    id:head    3
+Take Screenshot of the Order
+    Wait Until Element Is Visible    id:robot-preview
+    RPA.Browser.Selenium.Screenshot    locator=id:robot-preview    filename=${SCREENSHOT_PATH}
