@@ -8,22 +8,36 @@ Library             RPA.HTTP
 Library             RPA.Tables
 Library             RPA.Windows
 Library             RPA.PDF
+Library             RPA.Archive
 
 
 *** Variables ***
+### File names and Paths
 ${DONWLOAD_PATH}        ${OUTPUT DIR}${/}Worklist.csv
 ${SCREENSHOT_PATH}      ${OUTPUT DIR}${/}RobotScreen.png
+${PDFFOLDER}            ${OUTPUT_DIR}/PDFs/
+
+### GOBAL VARIABLES
+${WEBPAGE}              https://robotsparebinindustries.com/#/
+${USERNAME}             maria
+${PASSWORD}             thoushallnotpass
+${WEBPAGECSV}           https://robotsparebinindustries.com/orders.csv
 
 
 *** Tasks ***
 Order robots from RobotSpareBin Industries Inc
     Open and loging to webpage
-    Clik on popmelding
     Download csv file
-    Read csv file and return a list
-    Take Screenshot of the Order
-#    Convert and save to PDF
-#    Zip all pdf files
+    ${CSVLIST}=    Reading CSV to list
+    FOR    ${file}    IN    @{CSVLIST}
+        Order from webpage
+        ...    ${file}[Order number]
+        ...    ${file}[Body]
+        ...    ${file}[Head]
+        ...    ${file}[Legs]
+        ...    ${file}[Address]
+    END
+    Create Zip file
 #    [Teardown]    Close All Applications
 
 Minimal task
@@ -32,30 +46,26 @@ Minimal task
 
 *** Keywords ***
 Open and loging to webpage
-    Open Available Browser    https://robotsparebinindustries.com/#/
-    Input Text    username    maria
-    Input Password    password    thoushallnotpass
+    Log    Open webpage and login
+    Open Available Browser    ${WEBPAGE}
+    Input Text    username    ${USERNAME}
+    Input Password    password    ${PASSWORD}
     Submit Form
     Wait Until Page Contains Element    id:firstname
     Click Link    Order your robot!
+    Clik on PopupMessage
 
-Clik on popmelding
+Clik on PopupMessage
+    Log    Pop Message Found! Clicking on it!
     Click Button    //*[@id="root"]/div/div[2]/div/div/div/div/div/button[1]
 
 Download csv file
     Log    Downloading .CSV file
-    Download    https://robotsparebinindustries.com/orders.csv    overwrite=True    target_file=${DONWLOAD_PATH}
+    Download    ${WEBPAGECSV}    overwrite=True    target_file=${DONWLOAD_PATH}
 
-Read csv file and return a list
-    ${Liste}=    Read table from CSV    ${DONWLOAD_PATH}
-    FOR    ${file}    IN    @{Liste}
-        Order from webpage
-        ...    ${file}[Order number]
-        ...    ${file}[Body]
-        ...    ${file}[Head]
-        ...    ${file}[Legs]
-        ...    ${file}[Address]
-    END
+Reading CSV to list
+    ${CSVLIST}=    Read table from CSV    ${DONWLOAD_PATH}
+    RETURN    ${CSVLIST}
 
 Order from webpage
     [Arguments]    ${Ordernumaber}    ${Head}    ${Body}    ${Legs}    ${Address}
@@ -66,15 +76,25 @@ Order from webpage
     Click Button    id:preview
     Click Button    id:order
     Take Screenshot of the Order
-    ${RECEIPT}=    Get Element Attribute    id:receipt    outerHTML
-    Html To Pdf    ${RECEIPT}    ${Ordernumaber}.pdf
-    Open Pdf    ${Ordernumaber}.pdf
-    Add Watermark Image To Pdf    ${SCREENSHOT_PATH}    ${Ordernumaber}.pdf
-    Close Pdf
+    Create PDF file    ${Ordernumaber}
+
     Click Button    id:order-another
     ${PopupMessage}=    Does Page Contain Button    //*[@id="root"]/div/div[2]/div/div/div/div/div/button[1]
-    IF    ${PopupMessage}    Clik on popmelding
+    IF    ${PopupMessage}    Clik on PopupMessage
 
 Take Screenshot of the Order
     Wait Until Element Is Visible    id:robot-preview
     RPA.Browser.Selenium.Screenshot    locator=id:robot-preview    filename=${SCREENSHOT_PATH}
+
+Create Zip file
+    ${PDFZIPFILE}=    Set Variable    ${OUTPUT_DIR}/PDFs.zip
+    Archive Folder With Zip    ${PDFFOLDER}    ${PDFZIPFILE}
+
+Create PDF file
+    [Arguments]    ${Ordernumaber}
+    ${receipt}=    Get Element Attribute    id:receipt    outerHTML
+    ${filename}=    Set Variable    ${PDFFOLDER}${Ordernumaber}.pdf
+    Html To Pdf    ${receipt}    ${filename}
+    Open Pdf    ${filename}
+    Add Watermark Image To Pdf    ${SCREENSHOT_PATH}    ${filename}
+    Close Pdf
