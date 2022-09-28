@@ -9,6 +9,7 @@ Library             RPA.Tables
 Library             RPA.Windows
 Library             RPA.PDF
 Library             RPA.Archive
+Library             RPA.Dialogs
 
 
 *** Variables ***
@@ -26,8 +27,9 @@ ${WEBPAGECSV}           https://robotsparebinindustries.com/orders.csv
 
 *** Tasks ***
 Order robots from RobotSpareBin Industries Inc
+    ${webpage_csv_input}=    Ask user for CSV URL
     Open and loging to webpage
-    Download csv file
+    Download csv file    ${webpage_csv_input}
     ${CSVLIST}=    Reading CSV to list
     FOR    ${file}    IN    @{CSVLIST}
         Order from webpage
@@ -60,8 +62,9 @@ Clik on PopupMessage
     Click Button    //*[@id="root"]/div/div[2]/div/div/div/div/div/button[1]
 
 Download csv file
+    [Arguments]    ${webpage_csv_input}
     Log    Downloading .CSV file
-    Download    ${WEBPAGECSV}    overwrite=True    target_file=${DONWLOAD_PATH}
+    Download    ${webpage_csv_input}    overwrite=True    target_file=${DONWLOAD_PATH}
 
 Reading CSV to list
     ${CSVLIST}=    Read table from CSV    ${DONWLOAD_PATH}
@@ -74,7 +77,7 @@ Order from webpage
     Input Text    class:form-control    ${Legs}
     Input Text    id:address    ${Address}
     Click Button    id:preview
-    Click Button    id:order
+    Wait Until Keyword Succeeds    6x    1 sec    Click order and check receipt
     Take Screenshot of the Order
     Create PDF file    ${Ordernumaber}
 
@@ -98,3 +101,12 @@ Create PDF file
     Open Pdf    ${filename}
     Add Watermark Image To Pdf    ${SCREENSHOT_PATH}    ${filename}
     Close Pdf
+
+Click order and check receipt
+    Click Button    id:order
+    Click Element    id:receipt
+
+Ask user for CSV URL
+    Add heading    Please provide URL to CSV file
+    Add text input    url    label=CSV URL:
+    ${result}=    Run dialog
