@@ -1,10 +1,15 @@
 # robocorp certification level 2
 ![This is an image](https://avatars.githubusercontent.com/u/54288445?s=280&v=4)
 
-## TODO:
-- Assets and stuff
-- Get to know control room
 
+### 30.09.2022
+- Production ready
+- Added delete files
+- Correction in dialog window
+
+### 29.09.2022
+- Control room settings
+- Added vault
 
 ### 28.09.2022
 - Way around server error message
