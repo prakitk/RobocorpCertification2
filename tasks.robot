@@ -10,6 +10,8 @@ Library             RPA.Windows
 Library             RPA.PDF
 Library             RPA.Archive
 Library             RPA.Dialogs
+Library             RPA.Robocorp.Vault
+Library             RPA.FileSystem
 
 
 *** Variables ***
@@ -17,6 +19,7 @@ Library             RPA.Dialogs
 ${DONWLOAD_PATH}        ${OUTPUT DIR}${/}Worklist.csv
 ${SCREENSHOT_PATH}      ${OUTPUT DIR}${/}RobotScreen.png
 ${PDFFOLDER}            ${OUTPUT_DIR}/PDFs/
+${PDFZIPFILE}           ${OUTPUT_DIR}/PDFs.zip
 
 ### GOBAL VARIABLES
 ${WEBPAGE}              https://robotsparebinindustries.com/#/
@@ -27,9 +30,11 @@ ${WEBPAGECSV}           https://robotsparebinindustries.com/orders.csv
 
 *** Tasks ***
 Order robots from RobotSpareBin Industries Inc
-    ${webpage_csv_input}=    Ask user for CSV URL
-    Open and loging to webpage
-    Download csv file    ${webpage_csv_input}
+    Clean up
+    ${secret}=    Get Secret    Certification_level_2
+    ${result}=    Ask user for CSV URL
+    Open and loging to webpage    ${secret}[webpage_url]
+    Download csv file    ${result}
     ${CSVLIST}=    Reading CSV to list
     FOR    ${file}    IN    @{CSVLIST}
         Order from webpage
@@ -40,7 +45,7 @@ Order robots from RobotSpareBin Industries Inc
         ...    ${file}[Address]
     END
     Create Zip file
-#    [Teardown]    Close All Applications
+    [Teardown]    Close webbrowser
 
 Minimal task
     Log    Done.
@@ -48,8 +53,8 @@ Minimal task
 
 *** Keywords ***
 Open and loging to webpage
-    Log    Open webpage and login
-    Open Available Browser    ${WEBPAGE}
+    [Arguments]    ${webpage_url}
+    Open Available Browser    ${webpage_url}
     Input Text    username    ${USERNAME}
     Input Password    password    ${PASSWORD}
     Submit Form
@@ -63,7 +68,7 @@ Clik on PopupMessage
 
 Download csv file
     [Arguments]    ${webpage_csv_input}
-    Log    Downloading .CSV file
+    Log    ${webpage_csv_input}
     Download    ${webpage_csv_input}    overwrite=True    target_file=${DONWLOAD_PATH}
 
 Reading CSV to list
@@ -90,7 +95,6 @@ Take Screenshot of the Order
     RPA.Browser.Selenium.Screenshot    locator=id:robot-preview    filename=${SCREENSHOT_PATH}
 
 Create Zip file
-    ${PDFZIPFILE}=    Set Variable    ${OUTPUT_DIR}/PDFs.zip
     Archive Folder With Zip    ${PDFFOLDER}    ${PDFZIPFILE}
 
 Create PDF file
@@ -110,3 +114,11 @@ Ask user for CSV URL
     Add heading    Please provide URL to CSV file
     Add text input    url    label=CSV URL:
     ${result}=    Run dialog
+    RETURN    ${result.url}
+
+Close webbrowser
+    Close All Browsers
+
+Clean up
+    Remove Files    ${DONWLOAD_PATH}    ${PDFZIPFILE}
+    Empty Directory    ${PDFFOLDER}
